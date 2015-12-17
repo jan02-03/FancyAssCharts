@@ -3,78 +3,78 @@
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
       google.load("visualization", "1.1", {
-  packages: ["corechart", "bar", "table"]
-});
-google.setOnLoadCallback(drawChart);
+        packages: ["corechart", "bar", "table"]
+      });
+      google.setOnLoadCallback(drawChart);
 
-function drawChart() {
+      function drawChart() {
 
-  var data = new google.visualization.DataTable();
-  data.addColumn('string', 'Wave');
-  data.addColumn('number', 'sent');
-  data.addColumn('number', 'SMS');
-  data.addColumn('number', 'E-Mail');
-  data.addColumn('number', 'Others');
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Wave');
+        data.addColumn('number', 'sent');
+        data.addColumn('number', 'SMS');
+        data.addColumn('number', 'E-Mail');
+        data.addColumn('number', 'Others');
 
 
-  data.addRows([
-    ['1', 30, 50, 10, 60],
-    ['2', 30, 2, 10, 60],
-    ['3', 30, 50, 10, 60],
-    ['4', 30, 50, 10, 60]
-  ]);
+        data.addRows([
+          ['1 appels', 30, 50, 10, 60],
+          ['2 peren', 30, 2, 10, 60],
+          ['3 bananen', 30, 50, 10, 60],
+          ['4 kiwi', 30, 50, 10, 60]
+        ]);
 
-  var view = new google.visualization.DataView(data);
+        var view = new google.visualization.DataView(data);
 
-  view.setColumns([0, 1, {
-      calc: "stringify",
-      sourceColumn: 1,
-      type: "string",
-      role: "annotation"
-    },
-    2, {
-      calc: "stringify",
-      sourceColumn: 2,
-      type: "string",
-      role: "annotation"
-    },
-    3, {
-      calc: "stringify",
-      sourceColumn: 3,
-      type: "string",
-      role: "annotation"
-    },
-    4, {
-      calc: "stringify",
-      sourceColumn: 4,
-      type: "string",
-      role: "annotation"
-    },
-  ]);
+        view.setColumns([0, 1, {
+            calc: "stringify",
+            sourceColumn: 1,
+            type: "string",
+            role: "annotation"
+          },
+          2, {
+            calc: "stringify",
+            sourceColumn: 2,
+            type: "string",
+            role: "annotation"
+          },
+          3, {
+            calc: "stringify",
+            sourceColumn: 3,
+            type: "string",
+            role: "annotation"
+          },
+          4, {
+            calc: "stringify",
+            sourceColumn: 4,
+            type: "string",
+            role: "annotation"
+          },
+        ]);
 
-  var options = {
-    isStacked: true,
-    series: {
-      1: {
-        targetAxisIndex: 1
-      },
-      2: {
-        targetAxisIndex: 1
-      },
-      3: {
-        targetAxisIndex: 1
+        var options = {
+          isStacked: true,
+          series: {
+          1: {
+            targetAxisIndex: 1
+          },
+          2: {
+            targetAxisIndex: 1
+          },
+          3: {
+            targetAxisIndex: 1
+          }
+          },
+          vAxis: {
+          viewWindow: {
+            min: 0,
+            max: 150
+          }
+          }
+        };
+        var chart = new google.charts.Bar(document.getElementById('google-chart'));
+        chart.draw(view, google.charts.Bar.convertOptions(options));
       }
-    },
-    vAxis: {
-      viewWindow: {
-        min: 0,
-        max: 150
-      }
-    }
-  };
-  var chart = new google.charts.Bar(document.getElementById('google-chart'));
-  chart.draw(view, google.charts.Bar.convertOptions(options));
-}
     </script>
   </head>
   <body>
